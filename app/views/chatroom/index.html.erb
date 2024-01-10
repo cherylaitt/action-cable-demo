@@ -1,0 +1,13 @@
+<%= javascript_pack_tag 'chatroom_channel' %>
+<div id="message-section">
+  <% @chat_messages.each do |message| %>
+    <div class="message">
+      <p><%= message.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<%= form_with url: chatroom_path, method: 'post', local: true do |form| %>
+  <%= form.text_field :content, id: 'message-content' %>
+  <%= form.submit 'Send' %>
+<% end %>
