@@ -1,15 +1,19 @@
 import consumer from "./consumer";
 
 consumer.subscriptions.create(
-  { channel: "ChatroomChannel", room: "Best Room" },
+  { channel: "ChatMessagesChannel", room: "Best Room" },
   {
     received(data) {
+      console.log("received", data);
       this.appendLine(data);
     },
 
     appendLine(data) {
+      console.log("appendLine", data);
       const html = this.createLine(data);
-      const element = document.querySelector("[data-chat-room='Best Room']");
+      const element = document.getElementById("message-section");
+      // querySelector("[data-chat-room='Best Room']");
+      console.log("element", element);
       element.insertAdjacentHTML("beforeend", html);
     },
 

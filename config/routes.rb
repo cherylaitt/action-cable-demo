@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'chatroom#index'
-  post '/chatroom', to: 'chatroom#receive'
+  root 'chatrooms#index'
+  post '/chat_messages', to: 'chat_messages#create', as: 'chat_messages'
+
+  mount ActionCable.server => '/cable'
 end
