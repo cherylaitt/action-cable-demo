@@ -1,11 +1,5 @@
 <%= javascript_pack_tag 'chat_messages_channel' %>
-<div id="message-section">
-  <% @chat_messages.each do |message| %>
-    <div class="message">
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
-</div>
+<div id="message-section"></div>
 
 <%= form_with url: chat_messages_path, method: 'post', local: true do |form| %>
   <%= form.text_field :content, id: 'message-content' %>
